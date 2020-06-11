@@ -1,6 +1,6 @@
 # React Native Basic Note App
 
-Run commands:
+Run the commands:
 ```
 yarn install
 npx react-native run-android 

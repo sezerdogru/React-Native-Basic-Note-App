@@ -7,17 +7,18 @@ import Strings from "./Strings";
 import AddStore from "../store/AddStore";
 
 export default function Card({item}) {
+    const {note, noteDetail, date, month, year, day, id} = item;
+    console.log({item})
     const options = {
-        title,
-        subject: `${title}`,
-        message: `${date} tarihli notum: ${title} ${content}`,
-    };
-
-    const {title, content, date, month, year, day, id} = item;
+        title:note,
+        subject: `${note}`,
+        message: `${date} tarihli notum: ${note} ${noteDetail}`,
+    }; 
+    
     return (
         <View style={styles.item}>
             <View style={styles.header}>
-                <Text>{`${Strings.header}: ${title}`}</Text>
+                <Text>{`${Strings.header}: ${note}`}</Text>
                 <View style={styles.btnRow}>
                     <TouchableOpacity onPress={() => AddStore.delete({id})} style={styles.btn}>
                         <AntDesign name={"delete"} size={20}/>
@@ -31,7 +32,7 @@ export default function Card({item}) {
                 <Text>{`${Strings.date}: ${day}.${month + 1}.${year} / ${(new Date(date).toLocaleTimeString())}`}</Text>
             </View>
             <View style={styles.content}>
-                <Text style={styles.title}>{content}</Text>
+                <Text style={styles.title}>{noteDetail}</Text>
             </View>
         </View>
     );
